@@ -27,13 +27,13 @@ class MyTheme {
           fontWeight: FontWeight.w700,
         ),
         titleMedium: TextStyle(
-          fontSize: 25,
+          fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
         headlineMedium: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-        )
+          fontSize: 17,
+          fontWeight: FontWeight.w500,
+        ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor:whiteColor
       ,selectedItemColor: blackColor,
