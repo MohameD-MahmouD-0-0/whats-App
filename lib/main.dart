@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:untitled/UI/my_theme.dart';
 
 import 'UI/home-screen.dart';
 import 'UI/splash_screen.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget{
           SplahScreen.routeName:(context)=>SplahScreen(),
           HomeScreen.routeName:(context)=>HomeScreen(),
         },
+        theme: MyTheme.ligthMode,
       ) ,
     );
   }
