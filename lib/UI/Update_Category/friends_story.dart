@@ -15,17 +15,17 @@ class FriendsStory extends StatelessWidget {
           PersonalBuild('assets/images/image1.jpeg', 'Add Status'),
           StoryBuild(
             'assets/images/image1.jpeg',
-            'Mohamed',
+            'Hisham Ahmed',
             'assets/images/image8.jpeg',
           ),
           StoryBuild(
             'assets/images/image4.jpeg',
-            'Ahmed',
+            'Malak',
             'assets/images/image5.jpeg',
           ),
           StoryBuild(
             'assets/images/image3.jpeg',
-            'Omar',
+            'Mister black',
             'assets/images/image6.jpeg',
           ),
         ],
