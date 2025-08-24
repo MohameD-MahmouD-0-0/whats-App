@@ -10,7 +10,7 @@ class UpdatesScreen extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: Text('Updates', style: TextStyle(
-          fontWeight: FontWeight.w400,fontSize: 23
+            fontWeight: FontWeight.w400,fontSize: 23
         )),
         actions: [
           IconButton(onPressed: (){}, icon: Icon(Icons.search,size: 27,)),

@@ -32,7 +32,7 @@ class MyTheme {
         ),
         headlineMedium: TextStyle(
           fontSize: 17,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w600,
         ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor:whiteColor
@@ -41,6 +41,5 @@ class MyTheme {
       showSelectedLabels: true,
       showUnselectedLabels: true,
     ),
-
   );
 }
