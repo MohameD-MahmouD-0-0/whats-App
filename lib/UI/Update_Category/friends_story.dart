@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:untitled/UI/my_theme.dart';
+
+import '../../provider.dart';
 
 class FriendsStory extends StatelessWidget {
   @override
@@ -12,7 +15,7 @@ class FriendsStory extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         children: [
-          PersonalBuild('assets/images/image1.jpeg', 'Add Status'),
+          PersonalBuild('assets/images/image1.jpeg', 'Add Status', context),
           StoryBuild(
             'assets/images/image1.jpeg',
             'Hisham Ahmed',
@@ -51,7 +54,7 @@ Widget StoryBuild(String photo, String name, String story_photo) {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               // borderRadius: BorderRadius.all(Radius.circular(20)),
-              border: Border.all(color: MyTheme.greenColor, width: 2,),
+              border: Border.all(color: MyTheme.greenColor, width: 2),
             ),
             child: CircleAvatar(
               backgroundImage: AssetImage(photo),
@@ -76,7 +79,9 @@ Widget StoryBuild(String photo, String name, String story_photo) {
   );
 }
 
-Widget PersonalBuild(String photo, String name) {
+Widget PersonalBuild(String photo, String name, BuildContext context) {
+  final provider = Provider.of<ThemeProvider>(context);
+
   return Container(
     margin: EdgeInsets.all(10),
     width: 120.w,
@@ -106,14 +111,19 @@ Widget PersonalBuild(String photo, String name) {
         ),
         Positioned(
           bottom: 10.h,
-          left: 10.w,
+          left: 11.w,
           child: Text(
             name,
-            style: TextStyle(
-              color: MyTheme.blackColor,
-              fontSize: 14.sp,
-              fontWeight: FontWeight.bold,
-            ),
+            style:
+                TextStyle(
+                  color: MyTheme.blackColor,
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.bold,
+                ).copyWith(
+                  color: provider.themeMode == ThemeMode.dark
+                      ? MyTheme.whiteColor
+                      : MyTheme.blackColor,
+                ),
           ),
         ),
       ],

@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider.dart';
+
+
 
 class SearchWatsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ThemeProvider>(context);
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
       padding: EdgeInsets.symmetric(horizontal: 12.w),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color:  provider.themeMode == ThemeMode.light ? Colors.grey[200]:Colors.grey[900],
         borderRadius: BorderRadius.circular(25.r),
       ),
       child: TextField(

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider.dart';
 
 
 class ChannelsPage extends StatelessWidget {
@@ -9,12 +12,12 @@ class ChannelsPage extends StatelessWidget {
       Expanded(
         child: ListView(
           children: [
-            contact('assets/images/jobHunter.jpg', 'Job Hunters', 'Hiring in Egypt Position:Flutter Developer', '12:30 PM', 1),
-            contact('assets/images/tarboun.jpg', 'Tarboun', 'لايف جديد علي Kiock', '11:45 AM', 5),
-            contact('assets/images/route.jpg', 'Route', 'https://www.facebock.com.share/...', '10:20 AM', 6),
-            contact('assets/images/Techflow.jpg', 'Tech Flow', ' Our Team at Vois Egypt is growing,an', '9:00 AM', 0),
-            contact('assets/images/rockstars.jpg', 'Rockstar Game', ' Get up to  GTA\$2,000,000 in the GTA', 'Yesterday', 5),
-            contact('assets/images/alahly.jpeg', 'Al Ahly Sc', ' Goooooool!! the First Goal in the Match . ', 'Monday', 3),
+            contact('assets/images/jobHunter.jpg', 'Job Hunters', 'Hiring in Egypt Position:Flutter Developer', '12:30 PM', 1, context),
+            contact('assets/images/tarboun.jpg', 'Tarboun', 'لايف جديد علي Kiock', '11:45 AM', 5, context),
+            contact('assets/images/route.jpg', 'Route', 'https://www.facebock.com.share/...', '10:20 AM', 6,context),
+            contact('assets/images/Techflow.jpg', 'Tech Flow', ' Our Team at Vois Egypt is growing,an', '9:00 AM', 0,context),
+            contact('assets/images/rockstars.jpg', 'Rockstar Game', ' Get up to  GTA\$2,000,000 in the GTA', 'Yesterday', 5,context),
+            contact('assets/images/alahly.jpeg', 'Al Ahly Sc', ' Goooooool!! the First Goal in the Match . ', 'Monday', 3,context),
           ],),
       );
   }
@@ -26,14 +29,27 @@ Widget contact(
     String message,
     String time,
     int unread,
+    BuildContext context
     ) {
+  final provider = Provider.of<ThemeProvider>(context);
+
   return ListTile(
     leading: CircleAvatar(
       radius: 25,
       backgroundImage: AssetImage(photo),
     ),
-    title: Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-    subtitle: Text(message, maxLines: 1, overflow: TextOverflow.ellipsis),
+    title: Text(name, style: Theme.of(context).textTheme.titleSmall?.copyWith(
+      color:
+        provider.themeMode == ThemeMode.dark
+          ? Colors.white
+          : Colors.black,
+    )),
+    subtitle: Text(message, maxLines: 1, overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.labelSmall?.copyWith(
+      color:
+        provider.themeMode == ThemeMode.dark
+          ? Colors.white
+          : Colors.black,
+    ),),
     trailing: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
