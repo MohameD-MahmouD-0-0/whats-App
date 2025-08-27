@@ -25,9 +25,9 @@ class MyApp extends StatelessWidget{
       minTextAdapt: true,
       child:MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: HomeScreen.routeName,
+        initialRoute: SplahScreen.routeName,
         routes: {
-          // SplahScreen.routeName:(context)=>SplahScreen(),
+          SplahScreen.routeName:(context)=>SplahScreen(),
           HomeScreen.routeName:(context)=>HomeScreen(),
         },
         theme: MyTheme.ligthMode,

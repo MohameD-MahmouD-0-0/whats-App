@@ -6,6 +6,8 @@ import 'package:untitled/UI/my_theme.dart';
 import '../../provider.dart';
 
 class CallsScreen extends StatelessWidget {
+  const CallsScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     ThemeProvider provider = Provider.of<ThemeProvider>(context);
@@ -211,16 +213,21 @@ Widget friendCall(
         Text(
           time,
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            color:
-              provider.themeMode == ThemeMode.dark
-              ? MyTheme.greyColor
-              : MyTheme.blackColor,
+            color: provider.themeMode == ThemeMode.dark
+                ? MyTheme.greyColor
+                : MyTheme.blackColor,
           ),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
       ],
     ),
-    trailing: Icon(call, color: provider.themeMode==ThemeMode.dark?MyTheme.whiteColor:MyTheme.blackColor, size: 22.sp),
+    trailing: Icon(
+      call,
+      color: provider.themeMode == ThemeMode.dark
+          ? MyTheme.whiteColor
+          : MyTheme.blackColor,
+      size: 22.sp,
+    ),
   );
 }

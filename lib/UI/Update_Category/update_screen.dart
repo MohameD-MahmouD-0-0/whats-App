@@ -7,6 +7,8 @@ import '../../provider.dart';
 import 'channels_pages.dart';
 
 class UpdatesScreen extends StatelessWidget {
+  const UpdatesScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     ThemeProvider provider = Provider.of<ThemeProvider>(context);

@@ -6,6 +6,8 @@ import '../../provider.dart';
 import '../my_theme.dart';
 
 class ChatScreen extends StatelessWidget {
+  const ChatScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     ThemeProvider provider = Provider.of<ThemeProvider>(context);
@@ -16,8 +18,8 @@ class ChatScreen extends StatelessWidget {
             'WhatsApp',
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               color: provider.themeMode == ThemeMode.dark
-                  ? Colors.white
-                  : Colors.green,
+                  ? MyTheme.whiteColor
+                  : MyTheme.greenColor,
             ),
           ),
           elevation: 0,

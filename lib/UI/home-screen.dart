@@ -13,20 +13,33 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: index);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   Widget buildIcon(String imagePath, int tabIndex) {
     if (index == tabIndex) {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 9),
         decoration: BoxDecoration(
-            color: MyTheme.greenColor,
-            borderRadius: BorderRadius.all(Radius.circular(20))
+          color: MyTheme.greenColor,
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Image.asset(
           imagePath,
-          width: 24, // حجم مناسب للصورة داخل الـ Container
+          width: 24,
           height: 24,
-          color: Colors.white, // لون أبيض للصورة عندما تكون نشطة
+          color: Colors.white,
         ),
       );
     } else {
@@ -34,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
         imagePath,
         width: 24,
         height: 24,
-        color: Colors.grey, // لون رمادي للصورة عندما تكون غير نشطة
+        color: Colors.grey,
       );
     }
   }
@@ -42,11 +55,30 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (page) {
+          setState(() {
+            index = page;
+          });
+        },
+        children: const [
+          ChatScreen(),
+          UpdatesScreen(),
+          CallsScreen(),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         onTap: (ind) {
-          index = ind;
-          setState(() {});
+          setState(() {
+            index = ind;
+            _pageController.animateToPage(
+              ind,
+              duration: Duration(milliseconds: 400),
+              curve: Curves.easeInOut,
+            );
+          });
         },
         items: [
           BottomNavigationBarItem(
@@ -63,9 +95,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: taps[index],
     );
   }
 }
-
-List<Widget> taps = [ChatScreen(), UpdatesScreen(), CallsScreen()];
