@@ -11,6 +11,7 @@ class MyTheme {
   static Color babyblueColor = Colors.lightBlue;
   static Color purbleColor = Colors.purpleAccent;
   static Color blueColor = Colors.blue;
+  static Color kohlyColor = const Color(0xFF000814);
 
 
   static ThemeData ligthMode=ThemeData(
@@ -27,13 +28,17 @@ class MyTheme {
           fontWeight: FontWeight.w700,
         ),
         titleMedium: TextStyle(
-          fontSize: 25,
+          fontSize: 23,
           fontWeight: FontWeight.w600,
         ),
         headlineMedium: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-        )
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+        ),
+      titleSmall: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+      ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor:whiteColor
       ,selectedItemColor: blackColor,
@@ -41,6 +46,38 @@ class MyTheme {
       showSelectedLabels: true,
       showUnselectedLabels: true,
     ),
-
+  );
+  static ThemeData darkMode=ThemeData(
+    scaffoldBackgroundColor: kohlyColor,
+    primaryColor: kohlyColor,
+    appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(),
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+    ),
+    textTheme: TextTheme(
+      displayLarge:TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w400,
+      ),
+      titleMedium: TextStyle(
+        fontSize: 23,
+        fontWeight: FontWeight.w600,
+      ),
+      headlineMedium: TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.w500,
+      ),
+      titleSmall: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+      ),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor:kohlyColor
+      ,selectedItemColor: whiteColor,
+      unselectedItemColor: whiteColor,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+    ),
   );
 }

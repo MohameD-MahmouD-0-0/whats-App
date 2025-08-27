@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "106065836053",
+    "project_id": "whatstask-c01df",
+    "storage_bucket": "whatstask-c01df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106065836053:android:532e725693441e5a36f61c",
+        "android_client_info": {
+          "package_name": "com.example.untitled"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7fqcogf66mnUMxR-7_8nFxoK-xZxwRSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
